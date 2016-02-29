@@ -1,6 +1,7 @@
 'use strict'
 
 const romans = {
+  0: '',
   1:    'I',
   4:    'IV',
   5:    'V',
@@ -17,8 +18,6 @@ const romans = {
 }
 
 module.exports = function toRoman(decimal){
-  if (decimal == 0)
-    return ''
   if( romans[decimal] )
     return romans[decimal]
   let step = magic(decimal)
