@@ -21,11 +21,11 @@ module.exports = function toRoman(decimal){
     return ''
   if( romans[decimal] )
     return romans[decimal]
-  let step = magic(decimal)
-  return romans[step] + toRoman(decimal - step)
+  let remaining = nearest_roman_decimal(decimal)
+  return toRoman(remaining) + toRoman(decimal - remaining)
 }
 
-function magic(decimal){
+function nearest_roman_decimal(decimal){
   return Object.keys(romans).filter((number) => {
     return number < decimal
   }).pop()
